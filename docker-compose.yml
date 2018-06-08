@@ -4,5 +4,9 @@ services:
     extends:
       file: docker/docker-compose.common.yml
       service: app
+    command:
+      - scripts/start_app.sh
+    ports:
+      - "8080:8080"
     volumes:
       - .:/usr/src/app/
