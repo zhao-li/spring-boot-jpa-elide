@@ -10,3 +10,14 @@ services:
       - "8080:8080"
     volumes:
       - .:/usr/src/app/
+
+  database:
+    image: mysql:5.7.22
+    env_file:
+      - docker/development.database.env
+    volumes:
+      - data:/var/lib/mysql/
+      - ./elidetest.sql:/docker-entrypoint-initdb.d/elidetest.sql
+
+volumes:
+  data:

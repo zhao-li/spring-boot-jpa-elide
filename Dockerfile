@@ -3,6 +3,7 @@ FROM java:8
 ARG BASE=/usr/src/app
 
 RUN apt-get update && apt-get install -qq -y \
+  netcat \
   shellcheck
 
 WORKDIR ${BASE}
